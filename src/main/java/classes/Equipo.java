@@ -3,11 +3,11 @@ package classes;
 
 import java.io.Serializable;
 import java.util.HashSet;
-import java.util.Scanner;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,8 +27,8 @@ public class Equipo implements Serializable{
     @Column (name = "localidade")
     private String localidade;
     
-    @OneToMany (mappedBy = "equipo", cascade = CascadeType.ALL)
-    private Set <Competidor> competidores;
+    @OneToMany (mappedBy = "equipo", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    public Set <Competidor> competidores;
     
 
     public Equipo() {
@@ -42,7 +42,7 @@ public class Equipo implements Serializable{
 
     @Override
     public String toString() {
-        return "Equipo{" + "id=" + id + ", nome=" + nome + ", localidade=" + localidade + ", competidores=" + competidores + '}';
+        return "Equipo{" + "id=" + id + ", nome=" + nome + ", localidade=" + localidade + ", competidores=" /*+ competidores + '}'*/;
     }
 
     public int getId() {
@@ -69,6 +69,8 @@ public class Equipo implements Serializable{
         this.localidade = localidade;
     }
     
-    
+    public void addCompetidor(Competidor competidor){
+    this.competidores.add(competidor);
+    }
                 
 }

@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,12 +24,18 @@ public class Video implements Serializable {
     @Column (name = "enlace")
     private String enlace;
     
+    @ManyToOne
+    @JoinColumn ( name = "idVideo")
+    private Competidor competidor;
+    
+    
     public Video(){
     }
     
-    public Video (int licencia, String enlace){
+    public Video (int licencia, String enlace, Competidor competidor){
         this.licencia = licencia;
         this.enlace = enlace;
+        this.competidor = competidor;
     }
 
     @Override

@@ -46,7 +46,7 @@ public class HibernateUtil {
                 settings.put(Environment.DIALECT,"org.hibernate.dialect.MySQL5Dialect");
                 
                 //Indicamos que se as táboas todas se borren e se volvan crear
-                settings.put(Environment.HBM2DDL_AUTO, "create-drop");
+                settings.put(Environment.HBM2DDL_AUTO, "update");
                 
                 //Indicamos que se mostre as operacións SQL que Hibernate leva a cabo
                 settings.put(Environment.SHOW_SQL, "true");
