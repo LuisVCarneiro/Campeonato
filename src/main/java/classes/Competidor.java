@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -37,7 +38,7 @@ public class Competidor implements Serializable{
     @JoinColumn (name = "idEquipo")
     private Equipo equipo;
     
-    @OneToMany (mappedBy = "competidor", cascade = CascadeType.ALL)
+    @OneToMany (mappedBy = "competidor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set <Video> videos;
 
     public Competidor() {

@@ -25,24 +25,25 @@ public class Video implements Serializable {
     private String enlace;
     
     @ManyToOne
-    @JoinColumn ( name = "idVideo")
-    private Competidor competidor;
-    
-    
-    public Video(){
+    @JoinColumn ( name = "licenciaCompetidor")
+    Competidor competidor;
+
+    public Video() {
     }
-    
-    public Video (int licencia, String enlace, Competidor competidor){
+
+    public Video(int licencia, String enlace, Competidor competidor) {
         this.licencia = licencia;
         this.enlace = enlace;
         this.competidor = competidor;
     }
 
-    @Override
-    public String toString() {
-        return "Video{" + "id=" + id + ", licencia=" + licencia + ", enlace=" + enlace + '}';
+    public int getId() {
+        return id;
     }
- 
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getLicencia() {
         return licencia;
@@ -58,6 +59,19 @@ public class Video implements Serializable {
 
     public void setEnlace(String enlace) {
         this.enlace = enlace;
+    }
+
+    public Competidor getCompetidor() {
+        return competidor;
+    }
+
+    public void setCompetidor(Competidor competidor) {
+        this.competidor = competidor;
+    }
+
+    @Override
+    public String toString() {
+        return "Video{" + "id=" + id + ", licencia=" + licencia + ", enlace=" + enlace + ", competidor=" + competidor + '}';
     }
     
     
