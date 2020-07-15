@@ -1,376 +1,145 @@
 
 package interfaces;
-import classes.*;
-import conexion.HibernateUtil;
-import java.util.List;
-import javax.swing.JOptionPane;
-import org.hibernate.HibernateException;
-import org.hibernate.query.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class FrameCompetidor extends javax.swing.JFrame {
 
     public FrameCompetidor() {
         initComponents();
-        rellenarCombo();        
     }
-    
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jTextFieldLicencia = new javax.swing.JTextField();
-        jTextFieldNome = new javax.swing.JTextField();
-        jTextFieldApelidos = new javax.swing.JTextField();
-        jSpinnerAno = new javax.swing.JSpinner();
-        jComboBoxEquipos = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
-        jButtonAceptar = new javax.swing.JButton();
-        jButtonAtrás = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        jRadioButtonMasculino = new javax.swing.JRadioButton();
-        jRadioButtonFemenino = new javax.swing.JRadioButton();
-        jComboBoxCinturon = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
+        jButtonAñadir = new javax.swing.JButton();
+        jButtonEliminar = new javax.swing.JButton();
+        jButtonListar = new javax.swing.JButton();
+        jButtonAtras = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Número Licencia");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel1.setText("Competidor");
 
-        jLabel2.setText("Nome");
-
-        jLabel3.setText("Apelidos");
-
-        jLabel4.setText("Ano nacemento");
-
-        jLabel5.setText("Equipo");
-
-        jTextFieldLicencia.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAñadir.setText("Engadir");
+        jButtonAñadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldLicenciaActionPerformed(evt);
+                jButtonAñadirActionPerformed(evt);
             }
         });
 
-        jTextFieldNome.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEliminar.setText("Eliminar");
+        jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNomeActionPerformed(evt);
+                jButtonEliminarActionPerformed(evt);
             }
         });
 
-        jTextFieldApelidos.addActionListener(new java.awt.event.ActionListener() {
+        jButtonListar.setText("Listar");
+        jButtonListar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldApelidosActionPerformed(evt);
+                jButtonListarActionPerformed(evt);
             }
         });
 
-        jSpinnerAno.setModel(new javax.swing.SpinnerNumberModel(2005, 2005, 2020, 1));
-
-        jComboBoxEquipos.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAtras.setText("Atrás");
+        jButtonAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxEquiposActionPerformed(evt);
+                jButtonAtrasActionPerformed(evt);
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel6.setText("Novo Competidor");
-
-        jButtonAceptar.setText("Aceptar");
-        jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Modificar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAceptarActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-
-        jButtonAtrás.setText("Atrás");
-        jButtonAtrás.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAtrásActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setText("Sexo");
-
-        buttonGroup1.add(jRadioButtonMasculino);
-        jRadioButtonMasculino.setText("Masculino");
-
-        buttonGroup1.add(jRadioButtonFemenino);
-        jRadioButtonFemenino.setText("Femenino");
-
-        jComboBoxCinturon.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Blanco", "Blanco-amarillo", "Amarillo", "Amarillo-Naranja", "Naranja", "Naranja-verde", "Verde", "Verde-azul", "Azul", "Azul-rojo", "Rojo", "Rojo-negro", "Negro" }));
-
-        jLabel8.setText("Cinturón");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(110, 110, 110))
             .addGroup(layout.createSequentialGroup()
+                .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
+                        .addComponent(jButtonAñadir)
+                        .addGap(43, 43, 43)
+                        .addComponent(jButtonEliminar)
+                        .addGap(50, 50, 50)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(2, 2, 2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jSpinnerAno, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldNome)
-                                    .addComponent(jTextFieldLicencia, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldApelidos))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(32, 32, 32)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jRadioButtonMasculino)
-                                                    .addComponent(jLabel8))
-                                                .addGap(18, 18, 18))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel5)
-                                                .addGap(89, 89, 89)))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jComboBoxCinturon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jRadioButtonFemenino)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(100, 100, 100)
-                                        .addComponent(jLabel7)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 209, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBoxEquipos, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButtonAceptar)
-                                .addGap(28, 28, 28)
-                                .addComponent(jButtonAtrás)))
-                        .addGap(29, 29, 29))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(jLabel6)
-                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jButtonAtras)
+                            .addComponent(jButtonListar))))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel7))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jTextFieldLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2)
-                        .addComponent(jRadioButtonMasculino)
-                        .addComponent(jRadioButtonFemenino))
-                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(22, 22, 22)
+                .addComponent(jLabel1)
+                .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextFieldApelidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxCinturon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jSpinnerAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(4, 4, 4)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonAceptar)
-                            .addComponent(jButtonAtrás)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jComboBoxEquipos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel5)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addComponent(jButtonAñadir)
+                    .addComponent(jButtonEliminar)
+                    .addComponent(jButtonListar))
+                .addGap(41, 41, 41)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(jButtonAtras)
+                .addGap(36, 36, 36))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldApelidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldApelidosActionPerformed
-        String apelidos = jTextFieldApelidos.getText();
-    }//GEN-LAST:event_jTextFieldApelidosActionPerformed
+    private void jButtonAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAñadirActionPerformed
+       FrameNovoCompetidor fnc = new FrameNovoCompetidor();
+       fnc.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_jButtonAñadirActionPerformed
 
-    private void jComboBoxEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEquiposActionPerformed
-
-    }//GEN-LAST:event_jComboBoxEquiposActionPerformed
-
-    private void jTextFieldLicenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLicenciaActionPerformed
-        int licencia = Integer.valueOf(jTextFieldLicencia.getText());
-    }//GEN-LAST:event_jTextFieldLicenciaActionPerformed
-
-    private void jButtonAtrásActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrásActionPerformed
-        FramePrincipal p = new FramePrincipal();
-        p.setVisible(true);
+    private void jButtonListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarActionPerformed
+        FrameListarCompetidor flc = new FrameListarCompetidor();
+        flc.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButtonAtrásActionPerformed
+    }//GEN-LAST:event_jButtonListarActionPerformed
 
-    private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
-        addDatos();
-        reset();
-    }//GEN-LAST:event_jButtonAceptarActionPerformed
+    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
+        FrameSeleccionarCompetidor fec = new FrameSeleccionarCompetidor();
+        fec.setVisible(true);
+        this.setVisible(false);     
+    }//GEN-LAST:event_jButtonEliminarActionPerformed
 
-    private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
-        String nome = jTextFieldNome.getText();
-    }//GEN-LAST:event_jTextFieldNomeActionPerformed
-    
-    private void addDatos(){
-        String nomeEquipo = (String)jComboBoxEquipos.getSelectedItem();
-        Equipo equipo = seleccionarEquipo(nomeEquipo);
-        System.out.println(equipo.toString());
-        int licencia = Integer.valueOf(jTextFieldLicencia.getText());
-        String nome = jTextFieldNome.getText();
-        String apelidos = jTextFieldApelidos.getText();
-        int ano = (Integer)jSpinnerAno.getValue();
-        String sexo = sexo();
-        String categoria = calcularCategoria();
-        String cinturon = cinturon();
+    private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrasActionPerformed
+        FramePrincipal fp = new FramePrincipal();
+        fp.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButtonAtrasActionPerformed
 
-        Competidor competidor = new Competidor(licencia, nome, apelidos, ano, sexo, categoria, cinturon, equipo);
-        equipo.addCompetidor(competidor);
-        
-        System.out.println(competidor.toString());
-        System.out.println(equipo.toString());
-        
-        Transaction tran = null;
-        
-        try{
-            
-            Session session = HibernateUtil.getSessionFactory().openSession();
-            
-            tran = session.beginTransaction(); 
-            
-            session.saveOrUpdate(equipo);
-            
-            tran.commit();
-            session.close();
-            JOptionPane.showMessageDialog(null, "Datos gardados correctamente");
-            
-        }catch(HibernateException ex){
-            ex.printStackTrace();
-        }
-    }
-    
-    private void rellenarCombo(){
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Query verEquipos = session.createQuery("Select e from Equipo e");
-        List <Equipo> nomeEquipos = verEquipos.list();
-        for (int i = 0 ; i < nomeEquipos.size(); i++){
-            Equipo equipo = nomeEquipos.get(i);
-            String nomeSeleccionado = equipo.getNome();
-            jComboBoxEquipos.addItem(nomeSeleccionado);
-        }
-        session.close();
-    }
-    
-    private void reset(){
-        jTextFieldNome.setText("");
-        jTextFieldApelidos.setText("");
-        jTextFieldLicencia.setText("");
-        jSpinnerAno.setValue(1970);
-    }
-    
-    private String cinturon(){
-        String cinturon = (String)jComboBoxCinturon.getSelectedItem(); 
-        return cinturon;
-    }
-    
-    private Equipo seleccionarEquipo (String nomeEquipo){
-        Equipo e = null;
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Query selequipo = session.createQuery("Select e from Equipo e where nome = '" + nomeEquipo + "'");
-        List <Equipo> equipos = selequipo.list();
-        for (Equipo eq:equipos){
-            if (eq.getNome().equals(nomeEquipo)){
-                e = eq;
-            }
-        }
-        session.close();
-        return e;
-    }
-    
-    private String calcularCategoria(){
-        int ano = (Integer)jSpinnerAno.getValue();
-        String categoria = "";
-        if (ano == 2012 || ano == 2013){
-            categoria = "Benjamín";
-        }
-        if (ano == 2010 || ano == 2011){
-            categoria = "Alevín";
-        }
-        if (ano == 2009 || ano == 2008){
-            categoria = "Infantil";
-        }
-        if (ano == 2007 || ano == 2006){
-            categoria = "Cadete";
-        }
-        if (ano == 2005 || ano == 2004){
-            categoria = "Junior";
-        }
-        return categoria;
-    }
-    
-    public String sexo(){
-        String sexo;
-        if (jRadioButtonMasculino.isSelected()){
-            sexo = "Masculino";
-        }else {
-            sexo = "Femenino";
-        }
-        return sexo;
-    }
-    
-    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        FrameSeleccionarCompetidor fsc = new FrameSeleccionarCompetidor();
+        fsc.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButtonAceptar;
-    private javax.swing.JButton jButtonAtrás;
-    private javax.swing.JComboBox<String> jComboBoxCinturon;
-    private javax.swing.JComboBox<String> jComboBoxEquipos;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonAtras;
+    private javax.swing.JButton jButtonAñadir;
+    private javax.swing.JButton jButtonEliminar;
+    private javax.swing.JButton jButtonListar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JRadioButton jRadioButtonFemenino;
-    private javax.swing.JRadioButton jRadioButtonMasculino;
-    private javax.swing.JSpinner jSpinnerAno;
-    private javax.swing.JTextField jTextFieldApelidos;
-    private javax.swing.JTextField jTextFieldLicencia;
-    private javax.swing.JTextField jTextFieldNome;
     // End of variables declaration//GEN-END:variables
 }

@@ -128,8 +128,8 @@ public class FramePrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonNewTeamActionPerformed
 
     private void jButtonNewCompetitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewCompetitorActionPerformed
-        FrameCompetidor nc = new FrameCompetidor();
-        nc.setVisible(true);
+        FrameCompetidor fc = new FrameCompetidor();
+        fc.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButtonNewCompetitorActionPerformed
 

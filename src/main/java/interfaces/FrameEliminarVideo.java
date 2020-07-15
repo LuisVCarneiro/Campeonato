@@ -92,7 +92,6 @@ public class FrameEliminarVideo extends javax.swing.JFrame {
     private void jComboBoxOpcionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxOpcionsActionPerformed
         modelo.removeAllElements();
         rellenarLista();
-        
     }//GEN-LAST:event_jComboBoxOpcionsActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
