@@ -117,32 +117,49 @@ public class FrameSeleccionarCompetidor extends javax.swing.JFrame {
             numero = 3;
         }
        
-        Query q1 = session.createQuery("Select c from Competidor c");
-        List <Competidor> datos = q1.list();
-        for (Competidor comp:datos){
           switch (numero){
               case 0:
                   modelo.removeAllElements();
                   break;
               case 1:
+                  Query q1 = session.createQuery("Select c from Competidor c");
+                  List <Competidor> datos = q1.list();
+                  for (Competidor comp:datos){
                   modelo.addElement(comp.getLicencia());
                   jListCompetidores.setModel(modelo);
+                  }
+                  session.close();
                   break;
               case 2:
+                  Query q2 = session.createQuery("Select c from Competidor c");
+                  List <Competidor> dat = q2.list();
+                for (Competidor comp:dat){
                   modelo.addElement(comp.getNome() + " " +  comp.getApelidos());
                   jListCompetidores.setModel(modelo);
+                  }
+                session.close();
                   break;
               case 3:
-                  modelo.addElement(comp.getEquipo().getNome());
+                  Query q3 = session.createQuery("Select e from Equipo e");
+                  List <Equipo> equipos =q3.list();
+                  for (Equipo e:equipos){
+                  modelo.addElement(e.getNome());
                   jListCompetidores.setModel(modelo);
+                  }
+                  session.close();
                   break;
-                }
             }
-        session.close();
     }
     
-    private Competidor seleccionarCompetidor(){
+    private Competidor seleccionarCompetidor(String seleccionado){
         Competidor c = null;
+        seleccionado = String.valueOf(jListCompetidores.getSelectedIndex());
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Query q1 = session.createQuery("Select c from Competidor c");
+        List <Competidor> competidores = q1.list();
+        for (Competidor comp:competidores){
+            
+        }
         return c;
     }
 
